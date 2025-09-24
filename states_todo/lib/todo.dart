@@ -2,7 +2,6 @@
 
 import 'view.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/material.dart';
 
 class TodoListScreen extends StatefulWidget {
   final VoidCallback onThemeChanged; // ✅ fixed type
