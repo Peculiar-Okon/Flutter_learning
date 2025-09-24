@@ -459,8 +459,6 @@
 
 import 'view.dart';
 import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
 
 class TodoListScreen extends StatefulWidget {
   final VoidCallback onThemeChanged; // ✅ fixed type
