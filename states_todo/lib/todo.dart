@@ -461,7 +461,7 @@ import 'view.dart';
 import 'package:intl/intl.dart';
 
 class TodoListScreen extends StatefulWidget {
-  final VoidCallback onThemeChanged; // ✅ fixed type
+  final VoidCallback onThemeChanged; // fixed type
   final bool isDarkMode;
 
   const TodoListScreen({
@@ -477,7 +477,7 @@ class TodoListScreen extends StatefulWidget {
 class _TodoListScreenState extends State<TodoListScreen> {
   List<TodoItem> _todos = [];
   String _filter = 'all';
-  String _categoryFilter = 'All';
+  final _categoryFilter = 'All';
   bool _isSearching = false;
   String _searchQuery = '';
 
