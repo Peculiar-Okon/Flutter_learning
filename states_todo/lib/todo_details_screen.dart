@@ -152,11 +152,13 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return PopScope(
-      onWillPop: () async {
-        Navigator.pop(context, _currentTodo);
-        return false;
-      },
+      return PopScope(
+  canPop: false, // prevents default back navigation
+  onPopInvoked: (didPop) {
+    if (!didPop) {
+      Navigator.pop(context, _currentTodo);
+    }
+  },
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Todo Details"),
