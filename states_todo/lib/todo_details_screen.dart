@@ -202,24 +202,6 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
               ),
               const SizedBox(height: 8),
 
-              // 👇 Show priority with color
-              // Container(
-              //   padding:
-              //       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              //   decoration: BoxDecoration(
-              //     color: _currentTodo.getPriorityColor().withOpacity(0.15),
-              //     borderRadius: BorderRadius.circular(8),
-              //   ),
-              //   child: Text(
-              //     _currentTodo.getPriorityText(),
-              //     style: TextStyle(
-              //       fontSize: 14,
-              //       fontWeight: FontWeight.bold,
-              //       color: _currentTodo.getPriorityColor(),
-              //     ),
-              //   ),
-              // ),
-
 Row(
   mainAxisSize: MainAxisSize.min,
   children: [
