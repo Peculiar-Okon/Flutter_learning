@@ -1,5 +1,3 @@
-
-
 // import 'view.dart';
 // import 'package:intl/intl.dart';
 
@@ -276,7 +274,6 @@
 //   },
 // ),
 
-
 //           // Progress tracker
 //           Padding(
 //             padding: const EdgeInsets.all(12.0),
@@ -353,7 +350,7 @@
 //   },
 //   activeColor: Colors.green,
 // ),
-         
+
 //         title: Row(
 //           children: [
 //             Expanded(
@@ -455,7 +452,6 @@
 //     );
 //   }
 // }
-
 
 import 'view.dart';
 import 'package:intl/intl.dart';
@@ -572,13 +568,16 @@ class _TodoListScreenState extends State<TodoListScreen> {
         todos = [..._todos];
         const order = {'High': 3, 'Medium': 2, 'Low': 1};
         todos.sort((a, b) {
-          return (order[b.getPriorityText()] ?? 0)
-              .compareTo(order[a.getPriorityText()] ?? 0);
+          return (order[b.getPriorityText()] ?? 0).compareTo(
+            order[a.getPriorityText()] ?? 0,
+          );
         });
         break;
       case 'sort_date':
         todos = [..._todos];
-        todos.sort((a, b) => b.createdAt.compareTo(a.createdAt)); // newest first
+        todos.sort(
+          (a, b) => b.createdAt.compareTo(a.createdAt),
+        ); // newest first
         break;
       default:
         todos = [..._todos];
@@ -595,8 +594,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
             (todo) =>
                 todo.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
                 (todo.description?.toLowerCase().contains(
-                          _searchQuery.toLowerCase(),
-                        ) ??
+                      _searchQuery.toLowerCase(),
+                    ) ??
                     false),
           )
           .toList();
@@ -704,9 +703,13 @@ class _TodoListScreenState extends State<TodoListScreen> {
                 child: Text('All (${_todos.length})'),
               ),
               const PopupMenuItem(
-                  value: 'sort_date', child: Text('Sort by Date')),
+                value: 'sort_date',
+                child: Text('Sort by Date'),
+              ),
               const PopupMenuItem(
-                  value: 'sort_priority', child: Text('Sort by Priority')),
+                value: 'sort_priority',
+                child: Text('Sort by Priority'),
+              ),
               PopupMenuItem(
                 value: 'active',
                 child: Text(
@@ -720,8 +723,10 @@ class _TodoListScreenState extends State<TodoListScreen> {
                 ),
               ),
             ],
-            icon: Icon(Icons.filter_list,
-                color: isDark ? Colors.white : Colors.black),
+            icon: Icon(
+              Icons.filter_list,
+              color: isDark ? Colors.white : Colors.black,
+            ),
           ),
         ],
       ),
@@ -753,8 +758,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   SizedBox(width: 6),
                   Text(
                     "Streak: ${snapshot.data} 🔥",
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ],
               );
@@ -769,8 +773,10 @@ class _TodoListScreenState extends State<TodoListScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Progress",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text(
+                      "Progress",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     Text("${(_progress * 100).toStringAsFixed(0)}%"),
                   ],
                 ),
@@ -781,8 +787,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
                     value: _progress,
                     minHeight: 10,
                     backgroundColor: Colors.grey[300],
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.green[500]!),
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.green[500]!,
+                    ),
                   ),
                 ),
               ],
@@ -792,9 +799,13 @@ class _TodoListScreenState extends State<TodoListScreen> {
           Expanded(
             child: _filteredTodos.isEmpty
                 ? Center(
-                    child: Text("No todos found",
-                        style: TextStyle(
-                            color: isDark ? Colors.white70 : Colors.black54)))
+                    child: Text(
+                      "No todos found",
+                      style: TextStyle(
+                        color: isDark ? Colors.white70 : Colors.black54,
+                      ),
+                    ),
+                  )
                 : ListView.builder(
                     itemCount: _filteredTodos.length,
                     itemBuilder: (context, index) {
@@ -851,14 +862,13 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   color: todo.isCompleted
                       ? Colors.grey
                       : isDark
-                          ? Colors.white
-                          : Colors.black,
+                      ? Colors.white
+                      : Colors.black,
                 ),
               ),
             ),
             Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
                 color: priorityColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
@@ -887,8 +897,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   color: todo.isCompleted
                       ? Colors.grey
                       : isDark
-                          ? Colors.white70
-                          : Colors.black87,
+                      ? Colors.white70
+                      : Colors.black87,
                 ),
               ),
             Text(
@@ -922,7 +932,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
             const PopupMenuItem(value: 'edit', child: Text("Edit")),
             const PopupMenuItem(value: 'delete', child: Text("Delete")),
             const PopupMenuItem(
-                value: 'status', child: Text("Mark as Done/Undone")),
+              value: 'status',
+              child: Text("Mark as Done/Undone"),
+            ),
           ],
         ),
         onTap: () async {
@@ -940,5 +952,3 @@ class _TodoListScreenState extends State<TodoListScreen> {
     );
   }
 }
-
-

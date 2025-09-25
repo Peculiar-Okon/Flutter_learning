@@ -152,7 +152,7 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return WillPopScope(
+    return PopScope(
       onWillPop: () async {
         Navigator.pop(context, _currentTodo);
         return false;
