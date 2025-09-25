@@ -466,9 +466,9 @@ class TodoListScreen extends StatefulWidget {
     required this.isDarkMode,
   });
 
-//   @override
-//   _TodoListScreenState createState() => _TodoListScreenState();
-// }
+  @override
+  _TodoListScreenState createState() => _TodoListScreenState();
+}
 
 class _TodoListScreenState extends State<TodoListScreen> {
   List<TodoItem> _todos = [];
