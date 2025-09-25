@@ -154,7 +154,7 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
 
       return PopScope(
   canPop: false, // prevents default back navigation
-  onPopInvoked: (didPop) {
+  onPopInvokedWithResult: (didPop) {
     if (!didPop) {
       Navigator.pop(context, _currentTodo);
     }
