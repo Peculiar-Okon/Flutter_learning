@@ -107,7 +107,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
 
               // 👇 Priority Dropdown
               DropdownButtonFormField<Priority>(
-                value: _selectedPriority,
+                initialValue: _selectedPriority,
                 decoration: const InputDecoration(
                   labelText: "Priority",
                   border: OutlineInputBorder(),
